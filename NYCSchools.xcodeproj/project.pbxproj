@@ -14,6 +14,9 @@
 		E98659CA29CD2668007FF907 /* NYCSchoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659C929CD2668007FF907 /* NYCSchoolsTests.swift */; };
 		E98659D429CD2668007FF907 /* NYCSchoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659D329CD2668007FF907 /* NYCSchoolsUITests.swift */; };
 		E98659D629CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659D529CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift */; };
+		E98659E329CD28A7007FF907 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E229CD28A7007FF907 /* Model.swift */; };
+		E98659E529CD2B0C007FF907 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E429CD2B0C007FF907 /* ViewModel.swift */; };
+		E98659E729CD6C33007FF907 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E629CD6C33007FF907 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		E98659CF29CD2668007FF907 /* NYCSchoolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98659D329CD2668007FF907 /* NYCSchoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsUITests.swift; sourceTree = "<group>"; };
 		E98659D529CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E98659E229CD28A7007FF907 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E98659E429CD2B0C007FF907 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E98659E629CD6C33007FF907 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,9 @@
 				E98659BA29CD2666007FF907 /* ContentView.swift */,
 				E98659BC29CD2668007FF907 /* Assets.xcassets */,
 				E98659BE29CD2668007FF907 /* Preview Content */,
+				E98659E229CD28A7007FF907 /* Model.swift */,
+				E98659E429CD2B0C007FF907 /* ViewModel.swift */,
+				E98659E629CD6C33007FF907 /* DetailsView.swift */,
 			);
 			path = NYCSchools;
 			sourceTree = "<group>";
@@ -257,7 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98659E329CD28A7007FF907 /* Model.swift in Sources */,
+				E98659E729CD6C33007FF907 /* DetailsView.swift in Sources */,
 				E98659BB29CD2666007FF907 /* ContentView.swift in Sources */,
+				E98659E529CD2B0C007FF907 /* ViewModel.swift in Sources */,
 				E98659B929CD2666007FF907 /* NYCSchoolsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
