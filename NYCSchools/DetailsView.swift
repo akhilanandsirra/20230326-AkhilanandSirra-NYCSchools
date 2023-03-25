@@ -8,21 +8,28 @@
 import SwiftUI
 
 struct DetailsView: View {
-    let data: Doc
+    let data: Schools
      
     var body: some View {
         VStack(alignment: .leading) {
             VStack {
-                Text(data.publication_date)
+                Text(data.school_name)
                     .multilineTextAlignment(.leading)
-                 
-                Text("Neighborhood: \(data.id)")
+                
+                Text("Math: \(data.sat_math_avg_score ?? "No Scores")")
                     .multilineTextAlignment(.leading)
+                
+                Text("Writing: \(data.sat_writing_avg_score ?? "No Scores")")
+                    .multilineTextAlignment(.leading)
+                
+                Text("Reading: \(data.sat_critical_reading_avg_score ?? "No Scores")")
+                    .multilineTextAlignment(.leading)
+                
         
             }
             Spacer()
         }
         .padding()
-        .navigationBarTitle(Text(data.publication_date), displayMode: .inline)
+        .navigationBarTitle(Text("Additional Information"), displayMode: .inline)
     }
 }

@@ -42,18 +42,18 @@ struct Home : View {
 }
 
 struct cellView : View {
-    var data: Doc
+    var data: Schools
     var isLast : Bool
     
     @ObservedObject var listData : getData
     
     var body : some View {
         LazyVStack(alignment: .leading, spacing: 12){
-            Text(data.id).fontWeight(.bold)
+            Text(data.school_name).fontWeight(.bold)
 //            Text(data.eissn)
 //            Text(data.article_type)
             if self.isLast {
-                Text(data.publication_date).font(.caption)
+                Text(data.neighborhood).font(.caption)
                     .onAppear{
 //                        if self.listData.data.count != 50 {
 //                            self.listData.updateData()
@@ -61,7 +61,7 @@ struct cellView : View {
 //                        }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25 ) {
-                            if self.listData.data.count != 500 {
+                            if self.listData.data.count != 45 {
                                 print("loading1")
                                 self.listData.updateData()
                                 print("loading2")
@@ -69,7 +69,7 @@ struct cellView : View {
                         }
                     }
             } else {
-                Text(data.publication_date).font(.caption)
+                Text(data.neighborhood).font(.caption)
             }
             
         }

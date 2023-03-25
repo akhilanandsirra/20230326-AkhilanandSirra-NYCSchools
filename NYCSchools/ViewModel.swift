@@ -8,7 +8,7 @@
 import Foundation
 
 class getData : ObservableObject {
-    @Published var data = [Doc]()
+    @Published var data = [Schools]()
     @Published var count = 1
     
     init(){
@@ -16,20 +16,22 @@ class getData : ObservableObject {
     }
     
     func updateData() {
-        let url = "https://api.plos.org/search?q=title:%22Food%22start=\(count)&rows=10"
+        let url = "http://45.55.192.160:3001/api/v1/school/limit/\(count)"
         let session = URLSession(configuration: .default)
         session.dataTask(with: URL(string: url)!) { (data, _, error) in
             if error != nil {
+                print("oldData")
                 print((error?.localizedDescription)!)
                 return
             }
             
             do {
-                let json = try JSONDecoder().decode(Detail.self, from: data!)
+                let json = try JSONDecoder().decode(SchoolData.self, from: data!)
                 let oldData = self.data
+                print(oldData)
                 DispatchQueue.main.async {
-                    self.data = oldData + json.response.docs
-                    self.count += 10
+                    self.data = oldData + json.schools
+                    self.count += 1
                 }
             }
             catch {
