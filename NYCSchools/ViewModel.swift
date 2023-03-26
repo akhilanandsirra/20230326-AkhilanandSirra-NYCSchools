@@ -10,17 +10,15 @@ import CoreLocation
 import MapKit
 import SafariServices
 
+enum APIError: Error {
+    case requestFailed
+}
+
 class getData : ObservableObject {
     @Published var data = [Schools]()
     @Published var count = 1
     
-    init() {
-        Task(priority: .userInitiated) {
-            await updateData()
-        }
-    }
-    
-    func updateData() async {
+    func updateData() async throws {
         let url = "http://45.55.192.160:3001/api/v1/school/limit/\(count)"
         let session = URLSession(configuration: .default)
         do {
@@ -33,7 +31,7 @@ class getData : ObservableObject {
                 self.count += 1
             }
         } catch {
-            print("Error: \(error.localizedDescription)")
+            throw APIError.requestFailed
         }
     }
     
