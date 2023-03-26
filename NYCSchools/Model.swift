@@ -17,6 +17,9 @@ struct Schools : Decodable {
     var school_name: String
     var neighborhood: String
     var location: String
+    var phone_number: String
+    var school_email: String?
+    var website: String
     var total_students: String
     var num_of_sat_test_takers: String?
     var sat_math_avg_score: String?

@@ -23,19 +23,12 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Home : View {
-    @ObservedObject var listData = getData()
+    @State private var searchText = ""
+    @ObservedObject var viewModel = getData()
     var body: some View {
-        List(0..<listData.data.count, id: \.self) { i in
-            //                if i == self.listData.data.count - 1 {
-            //                    cellView(data: self.listData.data[i], isLast: true, listData: self.listData)
-            //                } else {
-            //                    cellView(data: self.listData.data[i], isLast: false, listData: self.listData)
-            //                }
-            
-            //                cellView(data: self.listData.data[i], isLast: (i == self.listData.data.count - 1), listData: self.listData)
-            
-            NavigationLink(destination: DetailsView(data: self.listData.data[i], listData: self.listData)) {
-                cellView(data: self.listData.data[i], isLast: (i == self.listData.data.count - 1), listData: self.listData)
+        List(0..<viewModel.data.count, id: \.self) { i in
+            NavigationLink(destination: DetailsView(data: self.viewModel.data[i], listData: self.viewModel)) {
+                cellView(data: self.viewModel.data[i], isLast: (i == self.viewModel.data.count - 1), listData: self.viewModel)
                     
             }
             .listRowSeparator(.hidden)
@@ -54,6 +47,7 @@ struct Home : View {
                                     )
                             )
         }
+        .searchable(text: $searchText)
         .background(Color(.secondarySystemFill))
         .listStyle(.plain)
     }
@@ -73,17 +67,18 @@ struct cellView : View {
                 .foregroundColor(Color(.secondaryLabel))
                 .onAppear {
                     if isLast && listData.data.count != 45 {
-                        listData.updateData()
+                        Task {
+                            await listData.updateData()
+                        }
                     }
                 }
         }
-        .padding(10)
+        .padding()
         .opacity(startAnimation ? 1.0: 0.0)
         .animation(.easeInOut (duration: 0.25).delay(0.1), value: startAnimation)
         .onAppear
         {
             startAnimation = true
         }
-        //.foregroundColor(.black)
     }
 }
