@@ -10,8 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            Home()
-                .navigationTitle("NYC High Schools")
+            
+            ZStack {
+                Color(UIColor.secondarySystemFill).ignoresSafeArea() // For not changing the background when keyboard is used
+                Home()
+                .navigationTitle("NYC High Schools")            }
         }
     }
 }
@@ -23,34 +26,42 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Home : View {
+    @State var loading: Bool = false
     @State private var searchText = ""
     @ObservedObject var viewModel = getData()
     var body: some View {
-        List(0..<viewModel.data.count, id: \.self) { i in
-            NavigationLink(destination: DetailsView(data: self.viewModel.data[i], listData: self.viewModel)) {
-                cellView(data: self.viewModel.data[i], isLast: (i == self.viewModel.data.count - 1), listData: self.viewModel)
-                    
+        List(0..<searchResults.count, id: \.self) { i in
+            NavigationLink(destination: DetailsView(data: searchResults[i], listData: self.viewModel)) {
+                cellView(data: searchResults[i], isLast: (i == searchResults.count - 1), listData: self.viewModel)
             }
             .listRowSeparator(.hidden)
-                            .listRowBackground(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .background(.clear)
-                                    .foregroundColor(Color(.systemBackground))
-                                
-                                    .padding(
-                                        EdgeInsets(
-                                            top: 5,
-                                            leading: 10,
-                                            bottom: 5,
-                                            trailing: 10
-                                        )
-                                    )
-                            )
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 10)
+                    .background(.clear)
+                    .foregroundColor(Color(.systemBackground))
+                
+                    .padding(
+                        EdgeInsets(
+                            top: 5,
+                            leading: 10,
+                            bottom: 5,
+                            trailing: 10
+                        )
+                    )
+            )
         }
         .searchable(text: $searchText)
-        .background(Color(.secondarySystemFill))
         .listStyle(.plain)
     }
+    
+    var searchResults: [Schools] {
+        if searchText.isEmpty {
+            return viewModel.data
+        } else {
+            return viewModel.data.filter { $0.school_name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+    // Given more time I would perform query search on whole json, and added favorites filter to it
 }
 
 struct cellView : View {
@@ -80,5 +91,15 @@ struct cellView : View {
         {
             startAnimation = true
         }
+    }
+}
+
+struct ErrorView: View {
+    let message: String
+    
+    var body: some View {
+        Text(message)
+            .foregroundColor(.red)
+            .padding()
     }
 }

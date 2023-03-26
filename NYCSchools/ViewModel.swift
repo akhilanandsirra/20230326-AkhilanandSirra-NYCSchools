@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import SafariServices
 
 class getData : ObservableObject {
     @Published var data = [Schools]()
@@ -35,7 +36,6 @@ class getData : ObservableObject {
             print("Error: \(error.localizedDescription)")
         }
     }
-
     
     func getTrimmedAddress(from addressString: String) -> String {
         if let endIndex = addressString.range(of: "(")?.lowerBound {
@@ -45,28 +45,48 @@ class getData : ObservableObject {
             return addressString
         }
     }
-    
+
     func openMapsApp(forAddress addressString: String, withName name: String) {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(addressString) { (placemarks, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                return
             } else if let placemarks = placemarks, let placemark = placemarks.first {
                 let mapItem = MKMapItem(placemark: MKPlacemark(placemark: placemark))
                 mapItem.name = name
-                mapItem.openInMaps(launchOptions: nil)
+                
+                if !mapItem.openInMaps(launchOptions: nil) {
+                    print("Failed to open Maps app.")
+                }
             }
         }
     }
 
+
     func openWebsite(urlString: String) {
-        if let url = URL(string: urlString) {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                print("Error: Unable to open URL")
-            }
+        var url: URL
+        
+        if urlString.lowercased().hasPrefix("http://") || urlString.lowercased().hasPrefix("https://") {
+            url = URL(string: urlString)!
+        } else {
+            url = URL(string: "http://" + urlString)!
         }
+        
+        let safariViewController = SFSafariViewController(url: url)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first
+        else {
+            print("Unable to get app window.")
+            return
+        }
+        
+        guard let rootViewController = window.rootViewController else {
+            print("Unable to get root view controller.")
+            return
+        }
+        
+        rootViewController.present(safariViewController, animated: true, completion: nil)
     }
 
     func makePhoneCall(phoneNumber: String) {
@@ -78,8 +98,13 @@ class getData : ObservableObject {
             return
         }
         
-        UIApplication.shared.open(url)
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            print("Error: Unable to make phone call")
+        }
     }
+
 
     func sendEmail(to emailAddress: String?) {
         guard let emailAddress = emailAddress, let url = URL(string: "mailto:\(emailAddress)") else {
@@ -87,7 +112,21 @@ class getData : ObservableObject {
             return
         }
         
-        UIApplication.shared.open(url)
+        if !isValidEmailAddress(emailAddress) {
+            print("Error: Invalid email address format")
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            print("Error: Unable to send email")
+        }
     }
 
+    func isValidEmailAddress(_ emailAddress: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPredicate.evaluate(with: emailAddress)
+    }
 }
