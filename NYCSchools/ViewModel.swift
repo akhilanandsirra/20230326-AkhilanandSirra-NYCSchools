@@ -39,4 +39,13 @@ class getData : ObservableObject {
             }
         }.resume()
     }
+    
+    func getTrimmedAddress(from addressString: String) -> String {
+        if let endIndex = addressString.range(of: "(")?.lowerBound {
+            let trimmedAddress = String(addressString[..<endIndex]).trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmedAddress
+        } else {
+            return addressString
+        }
+    }
 }

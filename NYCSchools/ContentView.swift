@@ -26,18 +26,36 @@ struct Home : View {
     @ObservedObject var listData = getData()
     var body: some View {
         List(0..<listData.data.count, id: \.self) { i in
-//                if i == self.listData.data.count - 1 {
-//                    cellView(data: self.listData.data[i], isLast: true, listData: self.listData)
-//                } else {
-//                    cellView(data: self.listData.data[i], isLast: false, listData: self.listData)
-//                }
+            //                if i == self.listData.data.count - 1 {
+            //                    cellView(data: self.listData.data[i], isLast: true, listData: self.listData)
+            //                } else {
+            //                    cellView(data: self.listData.data[i], isLast: false, listData: self.listData)
+            //                }
             
-//                cellView(data: self.listData.data[i], isLast: (i == self.listData.data.count - 1), listData: self.listData)
+            //                cellView(data: self.listData.data[i], isLast: (i == self.listData.data.count - 1), listData: self.listData)
             
-            NavigationLink(destination: DetailsView(data: self.listData.data[i])) {
+            NavigationLink(destination: DetailsView(data: self.listData.data[i], listData: self.listData)) {
                 cellView(data: self.listData.data[i], isLast: (i == self.listData.data.count - 1), listData: self.listData)
+                    
             }
-            }
+            .listRowSeparator(.hidden)
+                            .listRowBackground(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .background(.clear)
+                                    .foregroundColor(Color(.systemBackground))
+                                
+                                    .padding(
+                                        EdgeInsets(
+                                            top: 5,
+                                            leading: 10,
+                                            bottom: 5,
+                                            trailing: 10
+                                        )
+                                    )
+                            )
+        }
+        .background(Color(.secondarySystemFill))
+        .listStyle(.plain)
     }
 }
 
@@ -46,33 +64,26 @@ struct cellView : View {
     var isLast : Bool
     
     @ObservedObject var listData : getData
+    @State private var startAnimation: Bool = false
     
     var body : some View {
-        LazyVStack(alignment: .leading, spacing: 12){
-            Text(data.school_name).fontWeight(.bold)
-//            Text(data.eissn)
-//            Text(data.article_type)
-            if self.isLast {
-                Text(data.neighborhood).font(.caption)
-                    .onAppear{
-//                        if self.listData.data.count != 50 {
-//                            self.listData.updateData()
-//                            print("loading")
-//                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25 ) {
-                            if self.listData.data.count != 45 {
-                                print("loading1")
-                                self.listData.updateData()
-                                print("loading2")
-                            }
-                        }
+        LazyVStack(alignment: .leading, spacing: 8) {
+            Text(data.school_name).font(.headline)
+            Text(data.neighborhood).font(.subheadline)
+                .foregroundColor(Color(.secondaryLabel))
+                .onAppear {
+                    if isLast && listData.data.count != 45 {
+                        listData.updateData()
                     }
-            } else {
-                Text(data.neighborhood).font(.caption)
-            }
-            
+                }
         }
         .padding(10)
+        .opacity(startAnimation ? 1.0: 0.0)
+        .animation(.easeInOut (duration: 0.25).delay(0.1), value: startAnimation)
+        .onAppear
+        {
+            startAnimation = true
+        }
+        //.foregroundColor(.black)
     }
 }
