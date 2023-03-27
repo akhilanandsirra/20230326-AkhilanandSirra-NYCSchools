@@ -9,28 +9,39 @@ import XCTest
 @testable import NYCSchools
 
 final class NYCSchoolsTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // SUT --> System Under Test
+    func testSearchResults() {
+        let sut = getData()
+        sut.data = [Schools(dbn: "01M292", school_name: "School A", neighborhood: "Test Neighborhood", location: "220 Henry Street, New York NY 10002", phone_number: "212-406-9411", website: "http://www.henrystreet.org", total_students: "323"), Schools(dbn: "01M292", school_name: "School B", neighborhood: "Test Neighborhood", location: "220 Henry Street, New York NY 10002", phone_number: "212-406-9411", website: "http://www.henrystreet.org", total_students: "323")]
+        sut.searchText = "A"
+        XCTAssertEqual(sut.searchResults.count, 1)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testGetTrimmedAddress() {
+        let sut = getData()
+        let addressString = "123 Main Street (40.7128, -74.0060)"
+        let trimmedAddress = sut.getTrimmedAddress(from: addressString)
+        XCTAssertEqual(trimmedAddress, "123 Main Street")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testMakePhoneCall() {
+        let sut = getData()
+        let phoneNumber = "555-555-1212"
+        sut.makePhoneCall(phoneNumber: phoneNumber)
+        // Manually verify that the phone app opens with the correct number
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testSendEmail() {
+        let sut = getData()
+        let emailAddress = "test@example.com"
+        sut.sendEmail(to: emailAddress)
+        // Manually verify that the email app opens with the correct address
     }
-
+    
+    func testIsValidEmailAddress() {
+        let sut = getData()
+        XCTAssertTrue(sut.isValidEmailAddress("test@example.com"))
+        XCTAssertFalse(sut.isValidEmailAddress("test@"))
+        XCTAssertFalse(sut.isValidEmailAddress("test"))
+    }
 }
