@@ -30,7 +30,7 @@ Used colors that comply with both dark and light modes to ensure visual consiste
 When user select a school from the list, Detailed Screen shows additional information about the school.  
 
 ## Search Functionality
-<a href="https://imgur.com/nfx65oO"> <img src="https://i.imgur.com/nfx65oO.gif" /></a>
+<a href="https://imgur.com/IK8B3k6"><img src="https://i.imgur.com/IK8B3k6.gif" /></a>
 
 Users can search through the list of schools
 
@@ -42,7 +42,7 @@ Users can search through the list of schools
 Get Directions to the school address in Maps
 
 ### Visit Website
-<a href="https://imgur.com/g4LmuwX"><img src="https://i.imgur.com/g4LmuwX.gif" /></a>
+<a href="https://imgur.com/Z7X24VO"><img src="https://i.imgur.com/Z7X24VO.gif" /></a>
 
 Opens the school in schools official website
 
