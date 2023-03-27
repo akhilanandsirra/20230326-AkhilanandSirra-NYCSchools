@@ -25,7 +25,6 @@ class getData : ObservableObject {
             let (data, _) = try await session.data(from: URL(string: url)!)
             let json = try JSONDecoder().decode(SchoolData.self, from: data)
             let oldData = self.data
-            print(oldData)
             DispatchQueue.main.async {
                 self.data = oldData + json.schools
                 self.count += 1

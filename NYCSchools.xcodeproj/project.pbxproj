@@ -17,6 +17,10 @@
 		E98659E329CD28A7007FF907 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E229CD28A7007FF907 /* Model.swift */; };
 		E98659E529CD2B0C007FF907 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E429CD2B0C007FF907 /* ViewModel.swift */; };
 		E98659E729CD6C33007FF907 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E629CD6C33007FF907 /* DetailsView.swift */; };
+		E9ED7B9029D13E150043CEB4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED7B8F29D13E150043CEB4 /* HomeView.swift */; };
+		E9ED7B9229D13EEF0043CEB4 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED7B9129D13EEF0043CEB4 /* CellView.swift */; };
+		E9ED7B9429D140A30043CEB4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED7B9329D140A30043CEB4 /* ErrorView.swift */; };
+		E9ED7B9829D141500043CEB4 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED7B9729D141500043CEB4 /* CustomButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		E98659E229CD28A7007FF907 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E98659E429CD2B0C007FF907 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E98659E629CD6C33007FF907 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		E9ED7B8F29D13E150043CEB4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E9ED7B9129D13EEF0043CEB4 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		E9ED7B9329D140A30043CEB4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E9ED7B9729D141500043CEB4 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,13 +108,13 @@
 		E98659B729CD2666007FF907 /* NYCSchools */ = {
 			isa = PBXGroup;
 			children = (
+				E9ED7B9A29D1419B0043CEB4 /* Model */,
+				E9ED7B9929D141910043CEB4 /* ViewModel */,
+				E9ED7B9629D1412F0043CEB4 /* Styles */,
+				E9ED7B8E29D13DD40043CEB4 /* View */,
 				E98659B829CD2666007FF907 /* NYCSchoolsApp.swift */,
-				E98659BA29CD2666007FF907 /* ContentView.swift */,
 				E98659BC29CD2668007FF907 /* Assets.xcassets */,
 				E98659BE29CD2668007FF907 /* Preview Content */,
-				E98659E229CD28A7007FF907 /* Model.swift */,
-				E98659E429CD2B0C007FF907 /* ViewModel.swift */,
-				E98659E629CD6C33007FF907 /* DetailsView.swift */,
 			);
 			path = NYCSchools;
 			sourceTree = "<group>";
@@ -134,6 +142,42 @@
 				E98659D529CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift */,
 			);
 			path = NYCSchoolsUITests;
+			sourceTree = "<group>";
+		};
+		E9ED7B8E29D13DD40043CEB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E98659E629CD6C33007FF907 /* DetailsView.swift */,
+				E98659BA29CD2666007FF907 /* ContentView.swift */,
+				E9ED7B8F29D13E150043CEB4 /* HomeView.swift */,
+				E9ED7B9129D13EEF0043CEB4 /* CellView.swift */,
+				E9ED7B9329D140A30043CEB4 /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9ED7B9629D1412F0043CEB4 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED7B9729D141500043CEB4 /* CustomButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		E9ED7B9929D141910043CEB4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E98659E429CD2B0C007FF907 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9ED7B9A29D1419B0043CEB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E98659E229CD28A7007FF907 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,11 +310,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9ED7B9829D141500043CEB4 /* CustomButtonStyle.swift in Sources */,
 				E98659E329CD28A7007FF907 /* Model.swift in Sources */,
 				E98659E729CD6C33007FF907 /* DetailsView.swift in Sources */,
 				E98659BB29CD2666007FF907 /* ContentView.swift in Sources */,
+				E9ED7B9029D13E150043CEB4 /* HomeView.swift in Sources */,
 				E98659E529CD2B0C007FF907 /* ViewModel.swift in Sources */,
 				E98659B929CD2666007FF907 /* NYCSchoolsApp.swift in Sources */,
+				E9ED7B9229D13EEF0043CEB4 /* CellView.swift in Sources */,
+				E9ED7B9429D140A30043CEB4 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,11 +480,14 @@
 				DEVELOPMENT_TEAM = 6393H37BK7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NYCSchools;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,11 +512,14 @@
 				DEVELOPMENT_TEAM = 6393H37BK7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NYCSchools;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,7 +542,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6393H37BK7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Akhil.NYCSchoolsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,7 +562,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6393H37BK7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Akhil.NYCSchoolsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,6 +581,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6393H37BK7;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Akhil.NYCSchoolsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,6 +600,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6393H37BK7;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Akhil.NYCSchoolsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
