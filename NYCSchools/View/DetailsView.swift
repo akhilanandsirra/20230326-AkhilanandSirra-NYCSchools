@@ -86,3 +86,25 @@ struct DetailsView: View {
         .navigationBarTitle(Text("Additional Information"), displayMode: .inline)
     }
 }
+
+struct DetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        let school = Schools(
+            dbn: "01M292",
+            school_name: "Henry Street School for International Studies",
+            neighborhood: "neighborhood",
+            location: "220 Henry St, New York, NY 10002",
+            phone_number: "212-406-9411",
+            school_email: "hssis@schools.nyc.gov",
+            website: "https://www.schools.nyc.gov/schools/M292",
+            total_students: "323",
+            num_of_sat_test_takers: "29",
+            sat_math_avg_score: "404",
+            sat_critical_reading_avg_score: "355",
+            sat_writing_avg_score: "363"
+        )
+        let listData = getData()
+        DetailsView(data: school, listData: listData)
+    }
+}
+
