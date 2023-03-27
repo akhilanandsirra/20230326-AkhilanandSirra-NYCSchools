@@ -14,9 +14,9 @@ To enhance the overall user experience, I implemented light/dark mode, used appr
 <a href="https://imgur.com/WFzEdm6"><img src="https://i.imgur.com/WFzEdm6.gif" /></a>
 
 ## Icon
-Designed the app icon in illustrator
-
 <img src="https://user-images.githubusercontent.com/52598978/227871531-00432977-f74c-4d7f-b85c-79dc17480666.png" height="128"/>
+
+Designed the app icon in illustrator
 
 ## Dark/Light Mode
 
