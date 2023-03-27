@@ -37,13 +37,13 @@ class getData : ObservableObject {
     
     var searchResults: [Schools] {
         if searchText.isEmpty {
-            return data
+            return data // if search is empty return unfiltered data
         } else {
             return data.filter { $0.school_name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
-    func getTrimmedAddress(from addressString: String) -> String {
+    func getTrimmedAddress(from addressString: String) -> String { // Trim coordinates from address string
         if let endIndex = addressString.range(of: "(")?.lowerBound {
             let trimmedAddress = String(addressString[..<endIndex]).trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmedAddress
@@ -77,7 +77,7 @@ class getData : ObservableObject {
     func openWebsite(urlString: String) {
         var url: URL
         
-        if urlString.lowercased().hasPrefix("http://") || urlString.lowercased().hasPrefix("https://") {
+        if urlString.lowercased().hasPrefix("http://") || urlString.lowercased().hasPrefix("https://") { // Add http protocol if not present in url string
             url = URL(string: urlString)!
         } else {
             url = URL(string: "http://" + urlString)!
@@ -148,7 +148,7 @@ class getData : ObservableObject {
         }
     }
     
-    func isValidEmailAddress(_ emailAddress: String) -> Bool {
+    func isValidEmailAddress(_ emailAddress: String) -> Bool { // regular expression to validate email address
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPredicate.evaluate(with: emailAddress)

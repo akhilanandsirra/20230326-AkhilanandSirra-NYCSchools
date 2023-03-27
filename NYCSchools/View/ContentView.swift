@@ -17,7 +17,7 @@ struct ContentView: View {
                 .navigationTitle("NYC High Schools")
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle()) // To avoid sidebar on iPad
     }
 }
 

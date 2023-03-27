@@ -12,8 +12,6 @@
 		E98659BD29CD2668007FF907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98659BC29CD2668007FF907 /* Assets.xcassets */; };
 		E98659C029CD2668007FF907 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98659BF29CD2668007FF907 /* Preview Assets.xcassets */; };
 		E98659CA29CD2668007FF907 /* NYCSchoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659C929CD2668007FF907 /* NYCSchoolsTests.swift */; };
-		E98659D429CD2668007FF907 /* NYCSchoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659D329CD2668007FF907 /* NYCSchoolsUITests.swift */; };
-		E98659D629CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659D529CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift */; };
 		E98659E329CD28A7007FF907 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E229CD28A7007FF907 /* Model.swift */; };
 		E98659E529CD2B0C007FF907 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E429CD2B0C007FF907 /* ViewModel.swift */; };
 		E98659E729CD6C33007FF907 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98659E629CD6C33007FF907 /* DetailsView.swift */; };
@@ -49,8 +47,6 @@
 		E98659C529CD2668007FF907 /* NYCSchoolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98659C929CD2668007FF907 /* NYCSchoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsTests.swift; sourceTree = "<group>"; };
 		E98659CF29CD2668007FF907 /* NYCSchoolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E98659D329CD2668007FF907 /* NYCSchoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsUITests.swift; sourceTree = "<group>"; };
-		E98659D529CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E98659E229CD28A7007FF907 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E98659E429CD2B0C007FF907 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E98659E629CD6C33007FF907 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
@@ -90,7 +86,6 @@
 			children = (
 				E98659B729CD2666007FF907 /* NYCSchools */,
 				E98659C829CD2668007FF907 /* NYCSchoolsTests */,
-				E98659D229CD2668007FF907 /* NYCSchoolsUITests */,
 				E98659B629CD2666007FF907 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,15 +128,6 @@
 				E98659C929CD2668007FF907 /* NYCSchoolsTests.swift */,
 			);
 			path = NYCSchoolsTests;
-			sourceTree = "<group>";
-		};
-		E98659D229CD2668007FF907 /* NYCSchoolsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E98659D329CD2668007FF907 /* NYCSchoolsUITests.swift */,
-				E98659D529CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift */,
-			);
-			path = NYCSchoolsUITests;
 			sourceTree = "<group>";
 		};
 		E9ED7B8E29D13DD40043CEB4 /* View */ = {
@@ -334,8 +320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E98659D429CD2668007FF907 /* NYCSchoolsUITests.swift in Sources */,
-				E98659D629CD2668007FF907 /* NYCSchoolsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

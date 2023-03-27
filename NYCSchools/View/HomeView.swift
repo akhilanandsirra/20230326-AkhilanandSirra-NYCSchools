@@ -39,7 +39,7 @@ struct HomeView : View {
                                 )
                         )
                     }
-                    .searchable(text: $viewModel.searchText)
+                    .searchable(text: $viewModel.searchText) // Given more time I would perform query search on whole json, and added favorites filter to it
                     .listStyle(.plain)
                     .task {
                         do {
@@ -51,15 +51,6 @@ struct HomeView : View {
                     }
                 }
             }
-    
-    // Given more time I would perform query search on whole json, and added favorites filter to it
-//    var searchResults: [Schools] {
-//        if searchText.isEmpty {
-//            return viewModel.data
-//        } else {
-//            return viewModel.data.filter { $0.school_name.localizedCaseInsensitiveContains(searchText) }
-//        }
-//    }
 }
     
 

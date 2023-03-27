@@ -22,6 +22,7 @@ struct DetailsView: View {
                 Text("Address: \(listData.getTrimmedAddress(from: data.location))")
                 Text("Total Students: \(data.total_students)")
                 Text("SAT Scores:").fontWeight(.bold).font(.title2)
+                // Handling Optional Data
                 Text("Number of Test Takers: \(data.num_of_sat_test_takers ?? "Not Available")")
                 Text("Math: \(data.sat_math_avg_score ?? "Not Available")")
                 Text("Writing: \(data.sat_writing_avg_score ?? "Not Available")")
