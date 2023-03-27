@@ -17,6 +17,7 @@ enum APIError: Error {
 class getData : ObservableObject {
     @Published var data = [Schools]()
     @Published var count = 1
+    @Published var searchText: String = ""
     
     func updateData() async throws {
         let url = "http://45.55.192.160:3001/api/v1/school/limit/\(count)"
@@ -31,6 +32,14 @@ class getData : ObservableObject {
             }
         } catch {
             throw APIError.requestFailed
+        }
+    }
+    
+    var searchResults: [Schools] {
+        if searchText.isEmpty {
+            return data
+        } else {
+            return data.filter { $0.school_name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     

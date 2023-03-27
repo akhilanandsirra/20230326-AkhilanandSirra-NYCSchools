@@ -19,9 +19,9 @@ struct HomeView : View {
                 if let error = apiError {
                     ErrorView(message: error.localizedDescription)
                 } else {
-                    List(0..<searchResults.count, id: \.self) { i in
-                        NavigationLink(destination: DetailsView(data: searchResults[i], listData: self.viewModel)) {
-                            CellView(data: searchResults[i], isLast: (i == searchResults.count - 1), listData: self.viewModel)
+                    List(0..<viewModel.searchResults.count, id: \.self) { i in
+                        NavigationLink(destination: DetailsView(data: viewModel.searchResults[i], listData: self.viewModel)) {
+                            CellView(data: viewModel.searchResults[i], isLast: (i == viewModel.searchResults.count - 1), listData: self.viewModel)
                         }
                         .listRowSeparator(.hidden)
                         .listRowBackground(
@@ -39,7 +39,7 @@ struct HomeView : View {
                                 )
                         )
                     }
-                    .searchable(text: $searchText)
+                    .searchable(text: $viewModel.searchText)
                     .listStyle(.plain)
                     .task {
                         do {
@@ -53,13 +53,13 @@ struct HomeView : View {
             }
     
     // Given more time I would perform query search on whole json, and added favorites filter to it
-    var searchResults: [Schools] {
-        if searchText.isEmpty {
-            return viewModel.data
-        } else {
-            return viewModel.data.filter { $0.school_name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
+//    var searchResults: [Schools] {
+//        if searchText.isEmpty {
+//            return viewModel.data
+//        } else {
+//            return viewModel.data.filter { $0.school_name.localizedCaseInsensitiveContains(searchText) }
+//        }
+//    }
 }
     
 
